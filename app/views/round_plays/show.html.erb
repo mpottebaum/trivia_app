@@ -14,3 +14,7 @@
     </li>
 <% end %>
 </ol>
+
+<% if @game %>
+    <%= link_to "Continue Game", game_game_plays_path(@game), method: "post" %>
+<% end %>

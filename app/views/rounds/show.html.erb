@@ -2,7 +2,7 @@
 <p>Created By: <%= @round.creator.username %></p>
 
 <%= link_to "Edit Round", edit_round_path(@round) %>
-<%= link_to "Play Round", play_round_path(@round) %>
+<%= link_to "Play Round", new_round_round_play_path(@round) %>
 
 <h2>Questions:</h2>
 <ol>
