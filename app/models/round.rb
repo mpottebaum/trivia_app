@@ -4,6 +4,8 @@ class Round < ApplicationRecord
     has_many :questions, through: :round_questions
     has_many :round_plays
     has_many :users, through: :round_plays
+    has_many :game_rounds
+    has_many :games, through: :game_rounds
 
     validates :name, presence: true
 

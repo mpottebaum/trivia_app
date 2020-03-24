@@ -1,0 +1,7 @@
+<h1><%= @game.name %></h1>
+
+<ol>
+<% @round_plays.each do |round_play| %>
+    <li><%= round_play.round.name %> Score: <%= round_play.score %></li>
+<% end %>
+</ol>
