@@ -1,0 +1,16 @@
+<h1>Results</h1>
+
+<h2>Score: <%= @round_play.score %></h2>
+
+<ol>
+<% flash[:answers].each_key do |question_id, answer| %>
+    <li>
+    <%= Question.find(question_id).question %>:
+    <% if @round.check_answer(flash[:answers][question_id]) == true %>
+        <p>Correct</p>
+    <% else %>
+        <p>Incorrect</p>
+    <% end %>
+    </li>
+<% end %>
+</ol>

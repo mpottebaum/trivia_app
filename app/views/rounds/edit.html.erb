@@ -1,0 +1,13 @@
+<h1>Edit Round</h1>
+
+<% if @errors %>
+    <ul>
+    <% @errors.each do |error| %>
+        <li><%= error %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= render partial: 'form', locals: {round: @round, current_user: @current_user} %>
+
+<%= link_to "Delete Round", round_path(@round), method: "delete" %>

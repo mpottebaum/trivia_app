@@ -1,0 +1,7 @@
+<h1>All Rounds</h1>
+
+<ul>
+<% @rounds.each do |round| %>
+    <li><%= link_to round.name, round_path(round) %></li>
+<% end %>
+</ul>

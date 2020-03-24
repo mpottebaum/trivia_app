@@ -1,0 +1,15 @@
+<h1><%= @round.name %></h1>
+
+<%= form_tag round_round_plays_path(@round) %>
+    <ol>
+    <% @round.questions.each do |question| %>
+        <li>
+        <%= fields_for 'round[questions][]', question do |q| %>
+            <%= q.hidden_field :id %>
+            <%= q.label :answer, question.question %>
+            <%= q.text_field :answer, value: "" %>
+            <% end %>
+        </li>
+    <% end %>
+    </ol>
+    <%= submit_tag "Submit Answers" %>
