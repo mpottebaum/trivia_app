@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+    include SessionHelper
+
+    before_action :authorize, only: [:edit, :update, :destroy]
     
     def index
         @users = User.all
@@ -47,6 +50,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username)
+        params.require(:user).permit(:username, :email, :password)
     end
 end

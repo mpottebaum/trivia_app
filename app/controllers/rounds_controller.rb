@@ -1,4 +1,8 @@
 class RoundsController < ApplicationController
+    include SessionHelper
+
+    before_action :authorize, except: [:index, :show]
+
     def index
         @rounds = Round.all
     end

@@ -1,4 +1,7 @@
 class GamePlaysController < ApplicationController
+    include SessionHelper
+
+    before_action :authorize
 
     def start
         @game = Game.find(params[:game_id])

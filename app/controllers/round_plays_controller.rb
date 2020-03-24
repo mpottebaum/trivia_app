@@ -1,4 +1,8 @@
 class RoundPlaysController < ApplicationController
+    include SessionHelper
+
+    before_action :authorize
+
     def new
         set_round
     end
