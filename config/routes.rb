@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   resources :games do
     resources :game_plays, only: [:new, :create]
     get '/game_plays/start', to: 'game_plays#start'
-    get '/game_plays/results', to: 'game_play#results'
+    get '/game_plays/results', to: 'game_plays#results'
   end
+
+  resources :session, only: [:new, :create, :destroy]
+  get '/login', to: 'session#new', as: 'login'
+  post '/login', to: 'session#create'
+  delete '/logout', to: 'session#destroy', as: 'logout'
 end

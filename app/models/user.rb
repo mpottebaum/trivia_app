@@ -8,4 +8,5 @@ class User < ApplicationRecord
     has_many :played_games, through: :game_round_plays, source: :game
 
     validates :username, presence: true
+    has_secure_password
 end

@@ -1,4 +1,7 @@
 class GamesController < ApplicationController
+    include SessionHelper
+
+    before_action :authorize, except: [:index, :show]
 
     def index
         @games = Game.all
