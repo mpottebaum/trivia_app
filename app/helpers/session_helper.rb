@@ -12,6 +12,10 @@ module SessionHelper
     end
 
     def current_user
-        User.find_by(id: session[:current_user_id])
+        User.find_by(id: current_user_id)
+    end
+
+    def current_user_id
+        session[:current_user_id] ||= nil
     end
 end

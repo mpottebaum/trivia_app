@@ -1,7 +1,9 @@
 <h1><%= @round.name %></h1>
 <p>Created By: <%= @round.creator.username %></p>
 
-<%= link_to "Edit Round", edit_round_path(@round) %>
+<% if current_user_id == @round.creator.id %>
+    <%= link_to "Edit Round", edit_round_path(@round) %>
+<% end %>
 <%= link_to "Play Round", new_round_round_play_path(@round) %>
 
 <h2>Questions:</h2>

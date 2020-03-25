@@ -8,7 +8,7 @@ class RoundsController < ApplicationController
     end
 
     def new
-        @current_user = User.find(1)
+        set_current_user
         @round = Round.new(num_questions: 10)
         @round.build_empty_questions
     end
@@ -20,7 +20,7 @@ class RoundsController < ApplicationController
             redirect_to round_path(@round)
         else
             @errors = @round.errors.full_messages
-            @current_user = User.find(1)
+            set_current_user
             render :new
         end
     end
@@ -54,6 +54,10 @@ class RoundsController < ApplicationController
 
     def set_round
         @round = Round.find(params[:id])
+    end
+
+    def set_current_user
+        @current_user = User.find(current_user_id)
     end
 
     def round_params

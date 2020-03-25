@@ -1,8 +1,14 @@
 <h1><%= @game.name %></h1>
 
+<h3>Your Score: <%= @game.current_score(current_user_id) %></h3>
+
 <ol>
 <% @game.rounds.each do |round| %>
-    <li><%= round.name %></li>
+    <li><%= round.name %>
+    <% if @game.round_score(current_user_id, round) %>
+        Score: <%= @game.round_score(current_user_id, round) %>
+    <% end %>
+    </li>
 <% end %>
 </ol>
 
