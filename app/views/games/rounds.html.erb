@@ -1,0 +1,11 @@
+<h1>Create A Game</h1>
+
+<% if @errors %>
+    <ul>
+    <% @errors.each do |error| %>
+        <li><%= error %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= render partial: 'form', locals: {game: @game, rounds: @rounds} %>
