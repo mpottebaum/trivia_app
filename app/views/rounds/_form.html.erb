@@ -1,5 +1,4 @@
 <%= form_for round do |f| %>
-    <%= f.hidden_field :creator_id, value: current_user.id %>
     <div>
         <%= f.label :name, "Round Name:" %>
         <%= f.text_field :name %>
@@ -8,7 +7,7 @@
         <ol>
         <%= f.fields_for :questions do |q| %>
             <li>
-            <%= q.hidden_field :creator_id, value: current_user.id %>
+            <%= q.hidden_field :creator_id, value: current_user_id %>
             <%= q.label :question %>
             <%= q.text_area :question %>
             <%= q.label :answer %>

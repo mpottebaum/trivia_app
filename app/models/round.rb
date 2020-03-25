@@ -11,7 +11,7 @@ class Round < ApplicationRecord
 
     accepts_nested_attributes_for :questions
 
-    def build_empty_questions
+    def build_empty_questions(num_questions)
         num_questions.times do
             questions.build
         end

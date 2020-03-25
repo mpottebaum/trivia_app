@@ -1,11 +1,7 @@
 <h1>Create A Round</h1>
 
-<% if @errors %>
-    <ul>
-    <% @errors.each do |error| %>
-        <li><%= error %></li>
-    <% end %>
-    </ul>
+<%= form_tag new_round_questions_path do %>
+    <%= label_tag :num_questions, "Number of Questions:" %>
+    <%= select_tag :num_questions, options_for_select(@numbers) %>
+    <%= submit_tag "Continue" %>
 <% end %>
-
-<%= render partial: 'form', locals: {round: @round, current_user: @current_user} %>

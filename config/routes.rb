@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :rounds do
     resources :round_plays, only: [:new, :create, :show]
   end
+
+  post '/rounds/new/questions', to: 'rounds#questions', as: 'new_round_questions'
   
   resources :games do
     resources :game_plays, only: [:new, :create]
