@@ -1,5 +1,8 @@
 class SessionController < ApplicationController
 
+    def index
+    end
+    
     def new
     end
 
@@ -16,6 +19,6 @@ class SessionController < ApplicationController
 
     def destroy
         session.delete :current_user_id
-        redirect_to login_path
+        redirect_to root_path
     end
 end
