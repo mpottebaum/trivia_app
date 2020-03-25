@@ -1,5 +1,9 @@
 <h1><%= @user.username %></h1>
 
+<% if current_user == @user %>
+    <%= link_to "Edit", edit_user_path(current_user) %>
+<% end %>
+
 <h2><%= @user.username %>'s Created Rounds:</h2>
 <ul>
 <% @user.rounds.each do |round| %>
@@ -8,5 +12,12 @@
 </ul>
 
 <% if current_user == @user %>
-    <%= link_to "Edit", edit_user_path(current_user) %>
+    <%= link_to "Create New Round Group", new_round_group_path %>
+
+    <h2>Your Round Groups:</h2>
+    <ul>
+    <% @user.round_groups.each do |round_group| %>
+        <li><%= link_to round_group.name, round_group_path(round_group) %></li>
+    <% end %>
+    </ul>
 <% end %>

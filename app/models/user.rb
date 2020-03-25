@@ -6,6 +6,7 @@ class User < ApplicationRecord
     has_many :played_rounds, through: :round_plays, source: :round
     has_many :game_round_plays, through: :round_plays
     has_many :played_games, through: :game_round_plays, source: :game
+    has_many :round_groups
 
     validates :username, presence: true
     has_secure_password

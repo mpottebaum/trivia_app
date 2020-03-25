@@ -3,5 +3,7 @@
 <%= form_tag new_game_rounds_path do %>
     <%= label_tag :num_rounds, "Number of Rounds:" %>
     <%= select_tag :num_rounds, options_for_select(@numbers) %>
+    <%= label_tag :round_group_ids, "Your Round Groups To Select From:" %>
+    <%= select_tag :round_group_ids, options_from_collection_for_select(@round_groups, :id, :name), multiple: true %>
     <%= submit_tag "Continue" %>
 <% end %>
