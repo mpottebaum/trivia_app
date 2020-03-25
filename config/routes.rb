@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     get '/game_plays/results', to: 'game_plays#results'
   end
 
-  resources :session, only: [:new, :create, :destroy]
+  root 'session#index'
   get '/login', to: 'session#new', as: 'login'
   post '/login', to: 'session#create'
   delete '/logout', to: 'session#destroy', as: 'logout'
