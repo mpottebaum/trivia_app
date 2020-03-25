@@ -9,11 +9,12 @@ class GamesController < ApplicationController
 
     def new
         @numbers = (1..10).to_a
+        @round_groups = current_user.round_groups
     end
     
     def rounds
         num_rounds = params[:num_rounds].to_i
-        @rounds = Round.all
+        @rounds = Round.compile_rounds_from_round_groups(params[:round_group_ids])
         @game = Game.new
         num_rounds.times do
             @game.game_rounds.build

@@ -5,6 +5,12 @@
     <%= link_to "Edit Round", edit_round_path(@round) %>
 <% end %>
 <%= link_to "Play Round", new_round_round_play_path(@round) %>
+<% if logged_in? %>
+    <%= form_tag save_round_path(@round) do %>
+        <%= collection_select :round_group_round, :round_group_id, current_user.round_groups, :id, :name %>
+        <%= submit_tag "Add To Group" %>
+    <% end %>
+<% end %>
 
 <h2>Questions:</h2>
 <ol>

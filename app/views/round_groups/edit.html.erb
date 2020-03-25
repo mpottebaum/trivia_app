@@ -1,0 +1,12 @@
+<h1>Edit <%= @round_group.name %></h1>
+
+<% if @errors %>
+    <ul>
+    <% @errors.each do |error| %>
+        <li><%= error %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= render partial: 'form', locals: {round_group: @round_group} %>
+

@@ -1,0 +1,7 @@
+<h1>Your Round Groups</h1>
+
+<ul>
+<% @user.round_groups.each do |round_group| %>
+    <li><%= link_to round_group.name, round_group_path(round_group) %></li>
+<% end %>
+</ul>

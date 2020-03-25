@@ -1,0 +1,14 @@
+<h1><%= @round_group.name %></h1>
+
+<h2>Rounds:</h2>
+
+<ul>
+<% @round_group.round_group_rounds.each do |round_group_round| %>
+    <li>
+    <%= link_to round_group_round.round.name, round_path(round_group_round.round) %>
+    <%= link_to "Remove From Group", remove_round_path(round_group_round), method: "delete" %></li>
+<% end %>
+</ul>
+
+<%= link_to "Change Name", edit_round_group_path(@round_group) %>
+<%= link_to "Delete", round_group_path(@round_group), method: "delete" %>

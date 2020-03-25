@@ -19,4 +19,9 @@ Rails.application.routes.draw do
   get '/login', to: 'session#new', as: 'login'
   post '/login', to: 'session#create'
   delete '/logout', to: 'session#destroy', as: 'logout'
+
+  resources :round_groups
+
+  post '/round_groups/:round_id/save', to: 'round_groups#save', as: 'save_round'
+  delete '/round_groups/:round_group_round_id/remove', to: 'round_groups#remove', as: 'remove_round'
 end
