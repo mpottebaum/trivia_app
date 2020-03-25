@@ -4,20 +4,20 @@ class GamePlaysController < ApplicationController
     before_action :authorize
 
     def start
-        @game = Game.find(params[:game_id])
+        set_game
         session[:game_round_id] = @game.game_round_ids.first
     end
     
     def new
-        @game = Game.find(params[:game_id])
-        @current_game_round = @game.game_rounds.find(session[:game_round_id])
+        set_game
+        set_current_game_round
     end
     
     def create
-        @game = Game.find(params[:game_id])
-        current_game_round = @game.game_rounds.find(session[:game_round_id])
-        if @game.game_rounds.find_by(round_num: (current_game_round.round_num + 1))
-            session[:game_round_id] = @game.game_rounds.find_by(round_num: (current_game_round.round_num + 1)).id
+        set_game
+        set_current_game_round
+        if @game.next_round(@current_game_round)
+            session[:game_round_id] = @game.next_round(@current_game_round).id
             redirect_to new_game_game_play_path(@game)
         else
             session.delete :game_round_id
@@ -26,7 +26,17 @@ class GamePlaysController < ApplicationController
     end
     
     def results
+        set_game
+        @round_plays = @game.current_round_plays(session[:current_user_id])
+    end
+
+    private
+
+    def set_game
         @game = Game.find(params[:game_id])
-        @round_plays = @game.round_plays.where(user_id: 1)
+    end
+
+    def set_current_game_round
+        @current_game_round = @game.game_rounds.find(session[:game_round_id])
     end
 end
