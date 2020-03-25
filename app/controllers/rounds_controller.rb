@@ -9,12 +9,17 @@ class RoundsController < ApplicationController
 
     def new
         set_current_user
-        @round = Round.new(num_questions: 10)
-        @round.build_empty_questions
+        @numbers = (1..15).to_a
+    end
+    
+    def questions
+        @round = Round.new
+        @round.build_empty_questions(params[:num_questions].to_i)
+        render :questions
     end
 
     def create
-        @round = Round.new(round_params)
+        @round = current_user.rounds.new(round_params)
 
         if @round.save
             redirect_to round_path(@round)
