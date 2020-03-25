@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     get '/game_plays/results', to: 'game_plays#results'
   end
 
+  post '/games/new/rounds', to: 'games#rounds', as: 'new_game_rounds'
+
   root 'session#index'
   get '/login', to: 'session#new', as: 'login'
   post '/login', to: 'session#create'

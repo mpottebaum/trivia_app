@@ -5,7 +5,7 @@ class GamePlaysController < ApplicationController
 
     def start
         set_game
-        session[:game_round_id] = @game.game_round_ids.first
+        session[:game_round_id] = @game.first_game_round_id
     end
     
     def new

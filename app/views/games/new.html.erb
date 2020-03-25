@@ -1,0 +1,7 @@
+<h1>Create A Game</h1>
+
+<%= form_tag new_game_rounds_path do %>
+    <%= label_tag :num_rounds, "Number of Rounds:" %>
+    <%= select_tag :num_rounds, options_for_select(@numbers) %>
+    <%= submit_tag "Continue" %>
+<% end %>

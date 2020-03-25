@@ -1,0 +1,13 @@
+<%= form_for game do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <ol>
+        <%= f.fields_for :game_rounds do |g| %>
+            <li>
+                <%= g.label :round_id, "Round:" %>
+                <%= g.collection_select :round_id, rounds, :id, :name %>
+            </li>
+        <% end %>
+    </ol>
+    <%= f.submit %>
+<% end %>

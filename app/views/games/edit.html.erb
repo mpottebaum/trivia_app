@@ -1,0 +1,13 @@
+<h1>Edit <%= @game.name %></h1>
+
+<% if @errors %>
+    <ul>
+    <% @errors.each do |error| %>
+        <li><%= error %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= render partial: 'form', locals: {game: @game, rounds: @rounds} %>
+
+<%= link_to "Delete", game_path(@game), method: "delete" %>
