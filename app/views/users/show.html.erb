@@ -10,8 +10,19 @@
         </div>
         
 <div class="user-show">
+    <% if current_user == @user %>
+        <div class="user-groups">
+            <h2>Your Round Groups</h2>
+            <ul>
+            <% @user.round_groups.each do |round_group| %>
+                <li><%= link_to round_group.name, round_group_path(round_group) %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
+
     <div class="user-games">
-        <h2><%= @user.username %>'s Games:</h2>
+        <h2>Created Games</h2>
         <ul>
         <% @user.games.each do |game| %>
             <li><%= link_to game.name, game_path(game) %></li>
@@ -20,22 +31,33 @@
     </div>
 
     <div class="user-rounds">
-        <h2><%= @user.username %>'s Rounds:</h2>
+        <h2>Created Rounds</h2>
         <ul>
         <% @user.rounds.each do |round| %>
             <li><%= link_to round.name, round_path(round) %></li>
         <% end %>
         </ul>
-        </div>
-        
-    <% if current_user == @user %>
-        <div class="user-groups">
-            <h2>Your Round Groups:</h2>
-            <ul>
-            <% @user.round_groups.each do |round_group| %>
-                <li><%= link_to round_group.name, round_group_path(round_group) %></li>
-            <% end %>
-            </ul>
-        </div>
-    <% end %>
+    </div>
+    
+    <div class="user-played-games">
+        <h2>Played Games</h2>
+        <ul>
+        <% @user.played_games.uniq.each do |game| %>
+            <li><%= link_to game.name, game_path(game) %>
+            <br>
+            Score: <%= game.last_score_total(@user.id) %></li>
+        <% end %>
+        </ul>
+    </div>
+    
+    <div class="user-played-rounds">
+        <h2>Played Rounds</h2>
+        <ul>
+        <% @user.round_plays.each do |round_play| %>
+            <li><%= link_to round_play.round.name, round_path(round_play.round) %>
+            <br>
+            Score: <%= round_play.score %></li>
+        <% end %>
+        </ul>
+    </div>
 </div>

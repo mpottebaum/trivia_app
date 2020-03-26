@@ -31,3 +31,14 @@
             </ol>
             </div>
     </div>
+
+<% if @round.high_scores.empty? == false %>
+    <div>
+        <h2>High Scores:</h2>
+            <ul>
+            <% @round.high_scores.each do |round_play| %>
+                <li><%= round_play.user.username %>: <%= round_play.score %></li>
+            <% end %>
+            </ul>
+    </div>
+<% end %>

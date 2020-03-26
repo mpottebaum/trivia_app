@@ -16,3 +16,12 @@
     </ol>
 </div>
 </div>
+
+<div>
+    <h2>High Scores</h2>
+        <ul>
+        <% @game.high_scores.each do |score| %>
+            <li><%= score[1].username %>: <%= score[0] %></li>
+        <% end %>
+        </ul>
+</div>

@@ -43,7 +43,7 @@
  }
 
  li, p, label {
-    font-size: 25px;
+    font-size: 20px;
     line-height: 150%;
  }
 
@@ -53,6 +53,7 @@
 
  .round-questions {
      text-align: left;
+     font-size: 25px;
  }
 
  .add-to-group {
@@ -123,7 +124,8 @@
     grid-template-rows: auto;
     grid-template-areas:
         "groups groups"
-        "games rounds";
+        "games rounds"
+        "played_g played_r";
     margin-top: 20px;
     grid-gap: 10px;
 }
@@ -145,6 +147,16 @@
 
 .user-groups {
     grid-area: groups;
+    border: solid 2px black;
+}
+
+.user-played-games {
+    grid-area: played_g;
+    border: solid 2px black;
+}
+
+.user-played-rounds {
+    grid-area: played_r;
     border: solid 2px black;
 }
 
