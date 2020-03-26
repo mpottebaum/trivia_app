@@ -5,6 +5,9 @@ class RoundsController < ApplicationController
 
     def index
         @rounds = Round.all
+        @recent = Round.most_recent
+        @played = Round.most_played
+        @saved = Round.most_saved
     end
 
     def new

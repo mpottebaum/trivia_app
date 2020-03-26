@@ -44,4 +44,22 @@ class Round < ApplicationRecord
         end
         rounds.uniq
     end
+
+    def self.most_played
+        all.max(5) do |r_1, r_2|
+            r_1.round_plays.count <=> r_2.round_plays.count
+        end
+    end
+
+    def self.most_recent
+        all.max(5) do |r_1, r_2|
+            r_1.created_at <=> r_2.created_at
+        end
+    end
+
+    def self.most_saved
+        all.max(5) do |r_1, r_2|
+            r_1.round_groups.count <=> r_2.round_groups.count
+        end
+    end
 end

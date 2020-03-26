@@ -1,11 +1,18 @@
 <h1><%= @game.name %></h1>
 
-<ol>
-<% @game.rounds.each do |round| %>
-    <li><%= link_to round.name, round_path(round) %></li>
-<% end %>
-</ol>
-
-<%= link_to "Play Game", game_game_plays_start_path(@game) %>
-
 <%= link_to "Edit", edit_game_path(@game) %>
+<br>
+<button class="ui left labeled icon button">
+        <i class="play icon"></i><%= link_to "Play Game", game_game_plays_start_path(@game) %>
+</button>
+
+
+<div class="game-rounds">
+<div class="ui ordered list">
+    <ol>
+    <% @game.rounds.each do |round| %>
+        <li><%= link_to round.name, round_path(round) %></li>
+    <% end %>
+    </ol>
+</div>
+</div>

@@ -2,19 +2,25 @@
 
 <h2>Score: <%= @round_play.score %></h2>
 
-<ol>
-<% flash[:answers].each_key do |question_id, answer| %>
-    <li>
-    <%= Question.find(question_id).question %>:
-    <% if @round.check_answer(flash[:answers][question_id]) == true %>
-        <p>Correct</p>
-    <% else %>
-        <p>Incorrect</p>
-    <% end %>
-    </li>
-<% end %>
-</ol>
+<div class="round-questions">
+    <div class="ui ordered list">
+        <ol>
+        <% flash[:answers].each_key do |question_id, answer| %>
+            <li>
+            <%= Question.find(question_id).question %>
+            <% if @round.check_answer(flash[:answers][question_id]) == true %>
+                <p class="correct">Your Answer: <%= flash[:answers][question_id]["answer"] %></p>
+            <% else %>
+                <p class="incorrect">Your Answer: <%= flash[:answers][question_id]["answer"] %></p>
+            <% end %>
+            </li>
+        <% end %>
+        </ol>
+    </div>
+</div>
 
 <% if @game %>
-    <%= link_to "Continue Game", game_game_plays_path(@game), method: "post" %>
+    <button class="ui button"><%= link_to "Continue Game", game_game_plays_path(@game), method: "post" %></button>
+<% else %>
+    <button class="ui button"><%= link_to "Back To Rounds", rounds_path %></button>
 <% end %>

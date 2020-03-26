@@ -13,3 +13,153 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+/* SITE WIDE */
+
+ .user-links {
+     float: right;
+     margin-right: 30px;
+     margin-top: 8px;
+ }
+
+ .user-link {
+     padding: 5px;
+ }
+
+ .content {
+    margin-top: 25px;
+    margin-left: 50px;
+    text-align: center;
+ }
+
+ h1 {
+    font-size: 50px;
+ }
+
+ h2 {
+     font-size: 30px;
+ }
+
+ li, p, label {
+    font-size: 25px;
+    line-height: 150%;
+ }
+
+ ul {
+     list-style-type: none;
+ }
+
+ .round-questions {
+     text-align: left;
+ }
+
+ .add-to-group {
+     margin-top: 20px;
+     margin-left: auto;
+     margin-right: auto;
+     width: 30%;
+     display: block;
+ }
+
+.games-index {
+    display: inline-grid;
+    grid-template-columns: 300px 300px;
+    grid-template-areas:
+        "gplay grecent"
+        "gall gall";
+    grid-gap: 10px;
+    margin-top: 20px;
+}
+
+.games-all {
+    grid-area: gall;
+}
+
+.games-recent {
+    grid-area: grecent;
+    align-self: center;
+}
+.games-played {
+    grid-area: gplay;
+    align-self: center;
+}
+
+.game-rounds {
+    text-align: left;
+}
+
+.rounds-index {
+    display: inline-grid;
+    grid-template-columns: 300px 300px 300px;
+    grid-template-areas:
+        "rplay rrecent rsaved"
+        "rall rall rall";
+    grid-gap: 10px;
+    margin-top: 20px;
+}
+
+.rounds-all {
+    grid-area: rall;
+}
+
+.rounds-recent {
+    grid-area: rrecent;
+    align-self: center;
+}
+.rounds-played {
+    grid-area: rplay;
+    align-self: center;
+}
+.rounds-saved {
+    grid-area: rsaved;
+    align-self: center;
+}
+
+.user-show {
+    display: inline-grid;
+    grid-template-columns: 400px 400px;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "groups groups"
+        "games rounds";
+    margin-top: 20px;
+    grid-gap: 10px;
+}
+
+.user-info-link {
+    font-size: 20px;
+    padding: 10px;
+}
+
+.user-games {
+    grid-area: games;
+    border: solid 2px black;
+}
+
+.user-rounds {
+    grid-area: rounds;
+    border: solid 2px black;
+}
+
+.user-groups {
+    grid-area: groups;
+    border: solid 2px black;
+}
+
+.grid-cell {
+    border: solid 2px black;
+}
+
+.submit {
+    margin-top: 10px;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
