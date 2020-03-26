@@ -1,13 +1,22 @@
-<%= form_for game do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <ol>
-        <%= f.fields_for :game_rounds do |g| %>
-            <li>
-                <%= g.label :round_id, "Round:" %>
-                <%= g.collection_select :round_id, rounds, :id, :name %>
-            </li>
-        <% end %>
-    </ol>
-    <%= f.submit %>
-<% end %>
+<div class="wrapper">
+
+    <%= form_for game, html: {class: "ui form"} do |f| %>
+        <div class="inline field">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+        </div>
+        <h2>Rounds:</h2>
+        <ol>
+            <%= f.fields_for :game_rounds do |g| %>
+                <div class="field">
+                    <li>
+                        <%= g.collection_select :round_id, rounds, :id, :name %>
+                    </li>
+                </div>
+            <% end %>
+        </ol>
+        <div class="field submit">
+            <%= f.submit %>
+        </div>
+    <% end %>
+</div>

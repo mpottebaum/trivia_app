@@ -1,7 +1,33 @@
-<h1>All Games</h1>
+<h1>Games</h1>
 
-<ul>
-<% @games.each do |game| %>
-    <li><%= link_to game.name, game_path(game) %></li>
-<% end %>
-</ul>
+<div class="games-create">
+        <button class="ui button"><%= link_to "Create Game", new_game_path %></button>
+    </div>
+
+
+<div class="games-index">
+    <div class="games-recent grid-cell">
+        <h2>Recently Created:</h2>
+            <ul>
+            <% @recent.each do |game| %>
+                <li><%= link_to game.name, game_path(game) %></li>
+            <% end %>
+            </ul>
+        </div>
+    <div class="games-played grid-cell">
+        <h2>Most Played:</h2>
+            <ul>
+            <% @played.each do |game| %>
+                <li><%= link_to game.name, game_path(game) %></li>
+            <% end %>
+            </ul>
+        </div>
+    <div class="games-all grid-cell">
+        <h2>All Games</h2>
+            <ul>
+            <% @games.each do |game| %>
+                <li><%= link_to game.name, game_path(game) %></li>
+            <% end %>
+            </ul>
+        </div>
+    </div>

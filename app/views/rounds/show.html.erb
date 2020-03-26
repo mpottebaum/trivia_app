@@ -4,17 +4,30 @@
 <% if current_user_id == @round.creator.id %>
     <%= link_to "Edit Round", edit_round_path(@round) %>
 <% end %>
-<%= link_to "Play Round", new_round_round_play_path(@round) %>
+<div class="play-round-link">
+    <button class="ui left labeled icon button">
+        <i class="play icon"></i>
+        <%= link_to "Play Round", new_round_round_play_path(@round) %>
+    </button>
+</div>
 <% if logged_in? %>
-    <%= form_tag save_round_path(@round) do %>
-        <%= collection_select :round_group_round, :round_group_id, current_user.round_groups, :id, :name %>
-        <%= submit_tag "Add To Group" %>
-    <% end %>
+    <div class="add-to-group ui form">
+        <%= form_tag save_round_path(@round) do %>
+            <div class="field">
+            <%= collection_select :round_group_round, :round_group_id, current_user.round_groups, :id, :name, {}, {class: "ui search dropdown"} %>
+            <%= submit_tag "Add To Group" %>
+        <% end %>
+        </div>
+    </div>
 <% end %>
 
 <h2>Questions:</h2>
-<ol>
-<% @round.questions.each do |question| %>
-    <li><%= question.question %></li>
-<% end %>
-</ol>
+<div class="round-questions">
+    <div ="ui ordered list">
+        <ol>
+            <% @round.questions.each do |question| %>
+                <li><%= question.question %></li>
+            <% end %>
+            </ol>
+            </div>
+    </div>

@@ -5,6 +5,8 @@ class GamesController < ApplicationController
 
     def index
         @games = Game.all
+        @recent = Game.most_recent
+        @played = Game.most_played
     end
 
     def new

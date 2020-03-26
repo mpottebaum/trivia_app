@@ -1,22 +1,36 @@
-<%= form_for round do |f| %>
-    <div>
-        <%= f.label :name, "Round Name:" %>
-        <%= f.text_field :name %>
-    </div>
-    <div>
-        <ol>
-        <%= f.fields_for :questions do |q| %>
-            <li>
-            <%= q.hidden_field :creator_id, value: current_user_id %>
-            <%= q.label :question %>
-            <%= q.text_area :question %>
-            <%= q.label :answer %>
-            <%= q.text_field :answer %>
-            <%= q.label :alt_answer %>
-            <%= q.text_field :alt_answer %>
-            </li>
-        <% end %>
-        </ol>
-    </div>
-    <%= f.submit %>
-<% end %>
+<div class="wrapper">
+    <%= form_for round, html: {class: "ui form"} do |f| %>
+        <div class="inline field">
+            <%= f.label :name, "Round Name:" %>
+            <%= f.text_field :name %>
+        </div>
+        <h2>Questions:</h2>
+        <div class="round-questions">
+            <div class="ui list">
+                <ol>
+                <%= f.fields_for :questions do |q| %>
+                    <li>
+                        <%= q.hidden_field :creator_id, value: current_user_id %>
+                        <div class="field">
+                            <%= q.text_area :question, rows: "2" %>
+                        </div>
+                        <div class="two fields">
+                            <div class="four wide field">
+                                <%= q.label :answer %>
+                                <%= q.text_field :answer %>
+                            </div>
+                            <div class="four wide field">
+                                <%= q.label :alt_answer, "Alternate Answer" %>
+                                <%= q.text_field :alt_answer %>
+                            </div>
+                        </div>
+                    </li>
+                <% end %>
+                </ol>
+            </div>
+        </div>
+        <div class="field submit">
+            <%= f.submit %>
+        </div>
+    <% end %>
+</div>

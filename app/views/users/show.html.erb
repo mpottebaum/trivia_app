@@ -1,23 +1,41 @@
-<h1><%= @user.username %></h1>
 
-<% if current_user == @user %>
-    <%= link_to "Edit", edit_user_path(current_user) %>
-<% end %>
+    <div class="user-info">
+        <h1><%= @user.username %></h1>
+        <% if current_user == @user %>
+            <button class="ui button"><%= link_to "Create New Game", new_game_path, class: "user-info-link" %></button>
+            <button class="ui button"><%= link_to "Create New Round", new_round_path, class: "user-info-link" %></button>
+            <br>
+            <button class="ui button"><%= link_to "Create New Round Group", new_round_group_path, class: "user-info-link" %></button>
+        <% end %>
+        </div>
+        
+<div class="user-show">
+    <div class="user-games">
+        <h2><%= @user.username %>'s Games:</h2>
+        <ul>
+        <% @user.games.each do |game| %>
+            <li><%= link_to game.name, game_path(game) %></li>
+        <% end %>
+        </ul>
+    </div>
 
-<h2><%= @user.username %>'s Created Rounds:</h2>
-<ul>
-<% @user.rounds.each do |round| %>
-    <li><%= link_to round.name, round_path(round) %></li>
-<% end %>
-</ul>
-
-<% if current_user == @user %>
-    <%= link_to "Create New Round Group", new_round_group_path %>
-
-    <h2>Your Round Groups:</h2>
-    <ul>
-    <% @user.round_groups.each do |round_group| %>
-        <li><%= link_to round_group.name, round_group_path(round_group) %></li>
+    <div class="user-rounds">
+        <h2><%= @user.username %>'s Rounds:</h2>
+        <ul>
+        <% @user.rounds.each do |round| %>
+            <li><%= link_to round.name, round_path(round) %></li>
+        <% end %>
+        </ul>
+        </div>
+        
+    <% if current_user == @user %>
+        <div class="user-groups">
+            <h2>Your Round Groups:</h2>
+            <ul>
+            <% @user.round_groups.each do |round_group| %>
+                <li><%= link_to round_group.name, round_group_path(round_group) %></li>
+            <% end %>
+            </ul>
+        </div>
     <% end %>
-    </ul>
-<% end %>
+</div>

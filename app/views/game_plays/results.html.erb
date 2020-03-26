@@ -1,6 +1,6 @@
 <h1><%= @game.name %></h1>
 
-<h3>Your Score: <%= @game.current_score(current_user_id) %></h3>
+<h3>Your Score: <%= @game.last_score_total(current_user_id) %></h3>
 
 <ol>
 <% @round_plays.each do |round_play| %>

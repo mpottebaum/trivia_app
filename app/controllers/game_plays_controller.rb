@@ -5,6 +5,7 @@ class GamePlaysController < ApplicationController
 
     def start
         set_game
+        @game.clear_unfinished_games(current_user_id)
         session[:game_round_id] = @game.first_game_round_id
     end
     
@@ -27,7 +28,7 @@ class GamePlaysController < ApplicationController
     
     def results
         set_game
-        @round_plays = @game.current_round_plays(session[:current_user_id])
+        @round_plays = @game.last_round_plays(session[:current_user_id]).reverse
     end
 
     private
