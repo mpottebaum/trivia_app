@@ -4,6 +4,7 @@ class Game < ApplicationRecord
     belongs_to :creator, class_name: "User"
     has_many :game_round_plays, dependent: :destroy
     has_many :round_plays, through: :game_round_plays
+    has_many :users, through: :round_plays
 
     accepts_nested_attributes_for :game_rounds
 
@@ -105,5 +106,17 @@ class Game < ApplicationRecord
 
     def num_plays
         game_round_plays / (rounds.count)
+    end
+
+    def all_scores
+        users.map do |user|
+            [last_score_total(user.id), user]
+        end
+    end
+
+    def high_scores
+        all_scores.max(10) do |s_1, s_2|
+            s_1[0] <=> s_2[0]
+        end
     end
 end

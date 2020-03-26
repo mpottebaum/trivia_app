@@ -31,7 +31,19 @@ class Round < ApplicationRecord
     
     def check_answer(question_params)
         question = Question.find(question_params["id"])
-        question_params["answer"].downcase == question.answer.downcase
+        if question_params["answer"].downcase == question.answer.downcase
+            true
+        elsif check_alt_answer(question_params, question)
+            true
+        else
+            false
+        end
+    end
+
+    def check_alt_answer(question_params, question)
+        keywords = question.alt_answer.split(" ")
+        booleans = keywords.map {|word| question_params["answer"].downcase.include?(word.downcase)}
+        booleans.all? {|bool| bool == true}
     end
 
     def self.compile_rounds_from_round_groups(round_group_ids)
@@ -60,6 +72,12 @@ class Round < ApplicationRecord
     def self.most_saved
         all.max(5) do |r_1, r_2|
             r_1.round_groups.count <=> r_2.round_groups.count
+        end
+    end
+
+    def high_scores
+        round_plays.max(10) do |r_p_1, r_p_2|
+            r_p_1.score <=> r_p_2.score
         end
     end
 end

@@ -1,4 +1,6 @@
 <div class="wrapper">
+    <p>Answer: The user's response must match the answer exactly to be counted as correct. The answers are not case sensitive.</p>
+    <p>Keywords: If the user's response contains all keywords, the response will be counted as correct. Separate keywords by spaces. Do not use commas.</p>
     <%= form_for round, html: {class: "ui form"} do |f| %>
         <div class="inline field">
             <%= f.label :name, "Round Name:" %>
@@ -20,7 +22,7 @@
                                 <%= q.text_field :answer %>
                             </div>
                             <div class="four wide field">
-                                <%= q.label :alt_answer, "Alternate Answer" %>
+                                <%= q.label :alt_answer, "Keywords" %>
                                 <%= q.text_field :alt_answer %>
                             </div>
                         </div>

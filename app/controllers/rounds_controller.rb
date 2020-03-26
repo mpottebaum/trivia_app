@@ -29,6 +29,7 @@ class RoundsController < ApplicationController
         else
             @errors = @round.errors.full_messages
             set_current_user
+            @numbers = (1..15).to_a
             render :new
         end
     end
