@@ -1,26 +1,30 @@
 <div class="wrapper">
-    <h1><%= @round.name %></h1>
-
-    <div class="round-questions">
-        <%= form_tag round_round_plays_path(@round), html: {class: "ui form"} do %>
-            <div class="ui ordered list">
-                <ol>
-                <% @round.questions.each do |question| %>
-                    <li>
-                    <%= fields_for 'round[questions][]', question do |q| %>
-                        <%= q.hidden_field :id %>
-                        <div class="field">
-                            <%= q.label :answer, question.question %>
-                            <%= q.text_field :answer, value: "" %>
-                        </div>
-                        <% end %>
-                    </li>
-                <% end %>
-                </ol>
-            </div>
-            <div class="field submit">
-                <%= submit_tag "Submit Answers" %>
-            </div>
-        <% end %>
+    <div class="header">
+        <h1><%= @round.name %></h1>
+        </div>
+    <div class="round-show">
+        <div class="round-questions">
+            <%= form_tag round_round_plays_path(@round), html: {class: "ui form"} do %>
+                <div class="ui ordered list">
+                    <ol>
+                    <% @round.questions.each do |question| %>
+                        <li>
+                        <%= fields_for 'round[questions][]', question do |q| %>
+                            <%= q.hidden_field :id %>
+                            <div class="field">
+                                <%= q.label :answer, question.question %>
+                                <br>
+                                <%= q.text_field :answer, value: "", class: "answer-field" %>
+                            </div>
+                            <% end %>
+                        </li>
+                    <% end %>
+                    </ol>
+                </div>
+                <div class="field submit">
+                    <%= submit_tag "Submit Answers" %>
+                </div>
+            <% end %>
+        </div>
     </div>
 </div>

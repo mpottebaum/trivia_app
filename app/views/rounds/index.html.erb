@@ -1,12 +1,14 @@
-<h1>Rounds</h1>
+<div class="header">
+    <h1 class="title">Rounds</h1>
 
-<div class="rounds-create">
-    <button class="ui button"><%= link_to "Create Round", new_round_path %></button>
+    <div class="create">
+        <button class="ui button"><%= link_to "Create Round", new_round_path %></button>
+    </div>
 </div>
 
 <div class="rounds-index">
     <div class="rounds-played grid-cell">
-        <h2>Most Played:</h2>
+        <h2 class="list-title">Most Played:</h2>
             <ul>
             <% @rounds.each do |round| %>
                 <li><%= link_to round.name, round_path(round) %></li>
@@ -14,7 +16,7 @@
             </ul>
         </div>
     <div class="rounds-recent grid-cell">
-        <h2>Most Recent:</h2>
+        <h2 class="list-title">Most Recent:</h2>
             <ul>
             <% @rounds.each do |round| %>
                 <li><%= link_to round.name, round_path(round) %></li>
@@ -22,15 +24,15 @@
             </ul>
         </div>
     <div class="rounds-saved grid-cell">
-        <h2>Most Saved:</h2>
+        <h2 class="list-title">Most Saved:</h2>
             <ul>
             <% @rounds.each do |round| %>
                 <li><%= link_to round.name, round_path(round) %></li>
             <% end %>
             </ul>
         </div>
-    <div class="rounds-all grid-cell">
-        <h2>All Rounds</h2>
+    <div class="rounds-all grid-cell all">
+        <h2 class="list-title">All Rounds</h2>
             <ul>
             <% @rounds.each do |round| %>
                 <li><%= link_to round.name, round_path(round) %></li>

@@ -1,4 +1,13 @@
-<h1>Edit Round</h1>
+<div>
+    <h1>Edit Round</h1>
+
+    <p>Answer: The user's response must match the answer exactly to be counted as correct. The answers are not case sensitive.
+    <br>Keywords: If the user's response contains all keywords, the response will be counted as correct. Separate keywords by spaces. Do not use commas.</p>
+</div>
+
+<div class="round-delete">
+    <button class="ui button"><%= link_to "Delete Round", round_path(@round), method: "delete" %></button>
+</div>
 
 <% if @errors %>
     <ul>
@@ -9,5 +18,3 @@
 <% end %>
 
 <%= render partial: 'form', locals: {round: @round, current_user: @current_user} %>
-
-<%= link_to "Delete Round", round_path(@round), method: "delete" %>

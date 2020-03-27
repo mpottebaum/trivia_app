@@ -4,12 +4,10 @@
     <%= form_tag new_game_rounds_path, html: {class: "ui form"} do %>
         <div class="field">
             <%= label_tag :num_rounds, "Number of Rounds:" %>
-            <br>
-            <%= select_tag :num_rounds, options_for_select(@numbers), class: "ui search dropdown" %>
+            <%= select_tag :num_rounds, options_for_select(@numbers), class: "ui search dropdown select-game-new" %>
         <div class="field">
             <%= label_tag :round_group_ids, "Your Round Groups To Select From:" %>
-            <br>
-            <%= select_tag :round_group_ids, options_from_collection_for_select(@round_groups, :id, :name), multiple: true, class: "ui dropdown" %>
+            <%= select_tag :round_group_ids, options_from_collection_for_select(@round_groups, :id, :name), multiple: true, class: "ui dropdown select-game-new" %>
         </div>
         <div class="field submit">
             <%= submit_tag "Continue" %>

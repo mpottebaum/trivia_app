@@ -1,6 +1,12 @@
-<h1>Results</h1>
+<h1>Round Results</h1>
 
 <h2>Score: <%= @round_play.score %></h2>
+
+<% if @game %>
+    <button class="ui button"><%= link_to "Continue Game", game_game_plays_path(@game), method: "post" %></button>
+<% else %>
+    <button class="ui button"><%= link_to "Back To Rounds", rounds_path %></button>
+<% end %>
 
 <div class="round-questions">
     <div class="ui ordered list">
@@ -18,9 +24,3 @@
         </ol>
     </div>
 </div>
-
-<% if @game %>
-    <button class="ui button"><%= link_to "Continue Game", game_game_plays_path(@game), method: "post" %></button>
-<% else %>
-    <button class="ui button"><%= link_to "Back To Rounds", rounds_path %></button>
-<% end %>

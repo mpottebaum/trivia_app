@@ -31,7 +31,6 @@
  .content {
     margin-top: 25px;
     margin-left: 50px;
-    text-align: center;
  }
 
  h1 {
@@ -54,13 +53,11 @@
  .round-questions {
      text-align: left;
      font-size: 25px;
+     grid-area: questions;
  }
 
  .add-to-group {
      margin-top: 20px;
-     margin-left: auto;
-     margin-right: auto;
-     width: 30%;
      display: block;
  }
 
@@ -85,10 +82,6 @@
 .games-played {
     grid-area: gplay;
     align-self: center;
-}
-
-.game-rounds {
-    text-align: left;
 }
 
 .rounds-index {
@@ -174,4 +167,90 @@
 
 .incorrect {
     color: red;
+}
+
+.title {
+    
+}
+
+.create {
+    
+}
+
+.header {
+    float: left;
+    display: block;
+    margin-right: 50px;
+}
+
+.list-title {
+    margin-left: 10px;
+}
+
+.all {
+    text-align: center;
+}
+
+.games-show-grid {
+    display: inline-grid;
+    grid-template-columns: 350px 350px;
+    grid-template-areas:
+        "rounds scores";
+    grid-gap: 10px;
+}
+
+.game-rounds {
+    grid-area: rounds;
+}
+
+.high-scores {
+    grid-area: scores;
+}
+
+.show-title {
+    font-size: 27px;
+}
+
+.show-sub {
+    margin-left: 10px;
+}
+
+.show-header {
+    margin-top: 30px;
+    margin-right: 60px;
+}
+
+.round-show {
+    display: inline-grid;
+    grid-template-columns: auto;
+    grid-template-areas:
+        "questions"
+        "scores";
+    grid-gap: 50px;
+}
+
+.round-delete {
+    margin: 20px;
+    text-align: center;
+}
+
+.name{
+    font-size: 30px;
+    text-align: center;
+}
+
+.submit {
+    font-size: 20px;
+}
+
+#new-round-group {
+    margin-top: 8px;
+}
+
+.select-game-new {
+    margin-left: 10px;
+}
+
+.answer-field {
+    margin: 10px;
 }

@@ -1,5 +1,9 @@
 <h1>Edit <%= @game.name %></h1>
 
+<div class="round-delete">
+    <button class="ui button"><%= link_to "Delete", game_path(@game), method: "delete" %></button>
+</div>
+
 <% if @errors %>
     <ul>
     <% @errors.each do |error| %>
@@ -10,4 +14,3 @@
 
 <%= render partial: 'form', locals: {game: @game, rounds: @rounds} %>
 
-<%= link_to "Delete", game_path(@game), method: "delete" %>

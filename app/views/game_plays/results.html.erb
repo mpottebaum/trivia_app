@@ -1,5 +1,7 @@
 <h1><%= @game.name %></h1>
 
+<button class="ui button"><%= link_to "More Games", games_path %></button>
+
 <h3>Your Score: <%= @game.last_score_total(current_user_id) %></h3>
 
 <ol>

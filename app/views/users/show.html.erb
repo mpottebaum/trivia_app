@@ -1,18 +1,19 @@
-
+<div class="header show-header">
     <div class="user-info">
         <h1><%= @user.username %></h1>
         <% if current_user == @user %>
-            <button class="ui button"><%= link_to "Create New Game", new_game_path, class: "user-info-link" %></button>
-            <button class="ui button"><%= link_to "Create New Round", new_round_path, class: "user-info-link" %></button>
+            <button class="ui button"><%= link_to "New Game", new_game_path, class: "user-info-link" %></button>
+            <button class="ui button"><%= link_to "New Round", new_round_path, class: "user-info-link" %></button>
             <br>
-            <button class="ui button"><%= link_to "Create New Round Group", new_round_group_path, class: "user-info-link" %></button>
+            <button id="new-round-group" class="ui button"><%= link_to "New Round Group", new_round_group_path, class: "user-info-link" %></button>
         <% end %>
         </div>
+</div>
         
 <div class="user-show">
     <% if current_user == @user %>
         <div class="user-groups">
-            <h2>Your Round Groups</h2>
+            <h2 class="show-sub">Your Round Groups</h2>
             <ul>
             <% @user.round_groups.each do |round_group| %>
                 <li><%= link_to round_group.name, round_group_path(round_group) %></li>
@@ -22,7 +23,7 @@
     <% end %>
 
     <div class="user-games">
-        <h2>Created Games</h2>
+        <h2 class="show-sub">Created Games</h2>
         <ul>
         <% @user.games.each do |game| %>
             <li><%= link_to game.name, game_path(game) %></li>
@@ -31,7 +32,7 @@
     </div>
 
     <div class="user-rounds">
-        <h2>Created Rounds</h2>
+        <h2 class="show-sub">Created Rounds</h2>
         <ul>
         <% @user.rounds.each do |round| %>
             <li><%= link_to round.name, round_path(round) %></li>
@@ -40,7 +41,7 @@
     </div>
     
     <div class="user-played-games">
-        <h2>Played Games</h2>
+        <h2 class="show-sub">Played Games</h2>
         <ul>
         <% @user.played_games.uniq.each do |game| %>
             <li><%= link_to game.name, game_path(game) %>
@@ -51,7 +52,7 @@
     </div>
     
     <div class="user-played-rounds">
-        <h2>Played Rounds</h2>
+        <h2 class="show-sub">Played Rounds</h2>
         <ul>
         <% @user.round_plays.each do |round_play| %>
             <li><%= link_to round_play.round.name, round_path(round_play.round) %>
