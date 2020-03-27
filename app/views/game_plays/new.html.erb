@@ -2,6 +2,7 @@
 
 <h3>Your Score: <%= @game.current_score(current_user_id) %></h3>
 
+<h2>Rounds</h2>
 <ol>
 <% @game.rounds.each do |round| %>
     <li><%= round.name %>

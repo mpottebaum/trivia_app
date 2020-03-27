@@ -7,6 +7,7 @@ class GamePlaysController < ApplicationController
         set_game
         @game.clear_unfinished_games(current_user_id)
         session[:game_round_id] = @game.first_game_round_id
+        redirect_to new_game_game_play_path(@game)
     end
     
     def new

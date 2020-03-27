@@ -5,15 +5,15 @@ Rails.application.routes.draw do
     resources :round_plays, only: [:new, :create, :show]
   end
 
-  post '/rounds/new/questions', to: 'rounds#questions', as: 'new_round_questions'
+  get '/rounds/new/questions', to: 'rounds#questions', as: 'new_round_questions'
   
   resources :games do
     resources :game_plays, only: [:new, :create]
-    get '/game_plays/start', to: 'game_plays#start'
+    post '/game_plays/start', to: 'game_plays#start'
     get '/game_plays/results', to: 'game_plays#results'
   end
 
-  post '/games/new/rounds', to: 'games#rounds', as: 'new_game_rounds'
+  get '/games/new/rounds', to: 'games#rounds', as: 'new_game_rounds'
 
   root 'session#index'
   get '/login', to: 'session#new', as: 'login'
