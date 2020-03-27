@@ -2,7 +2,7 @@
     <h2 class="show-title"><%= @game.name %></h2>
 
     <button class="ui left labeled icon button">
-            <i class="play icon"></i><%= link_to "Play Game", game_game_plays_start_path(@game) %>
+            <i class="play icon"></i><%= link_to "Play Game", game_game_plays_start_path(@game), method: "post" %>
     </button>
     <% if current_user == @game.creator %>
         <button class="ui button"><%= link_to "Edit", edit_game_path(@game) %></button>
