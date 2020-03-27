@@ -18,7 +18,6 @@ class RoundsController < ApplicationController
     def questions
         @round = Round.new
         @round.build_empty_questions(params[:num_questions].to_i)
-        render :questions
     end
 
     def create

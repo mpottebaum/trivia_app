@@ -2,6 +2,7 @@ class RoundPlaysController < ApplicationController
     include SessionHelper
 
     before_action :authorize
+    before_action :in_game?, only: :new
 
     def new
         set_round
@@ -29,6 +30,10 @@ class RoundPlaysController < ApplicationController
     end
 
     private
+
+    def in_game?
+        session.delete :game_round_id unless request.query_parameters["data"]
+    end
 
     def set_round
         @round = Round.find(params[:round_id])
