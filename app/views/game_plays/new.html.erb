@@ -13,4 +13,7 @@
 <% end %>
 </ol>
 
-<button class="ui button"><%= link_to "Start Next Round", new_round_round_play_path(@current_game_round.round) %></button>
+<%= form_tag new_round_round_play_path(@current_game_round.round), method: :get do %>
+    <%= hidden_field_tag :data, "game" %>
+    <%= submit_tag "Start Next Round" %>
+<% end %>

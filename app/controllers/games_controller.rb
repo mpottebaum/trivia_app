@@ -21,7 +21,6 @@ class GamesController < ApplicationController
         num_rounds.times do
             @game.game_rounds.build
         end
-        render :rounds
     end
 
     def create
