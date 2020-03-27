@@ -12,12 +12,18 @@
 </ul>
 <% end %>
 
-<%= form_tag login_path do %>
-    <%= label_tag :username %>
-    <%= text_field_tag :username %>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-    <%= submit_tag "Login" %>
-<% end %>
-
-<%= link_to "Create Username", new_user_path %>
+<div class="wrapper">
+    <%= form_tag login_path, html: {class: "ui form"} do %>
+        <div class="field">
+            <%= label_tag :username %>
+            <%= text_field_tag :username %>
+        </div>
+        <div class="field">
+            <%= label_tag :password %>
+            <%= password_field_tag :password %>
+        </div>
+        <%= submit_tag "Login", class: "ui button" %>
+    <% end %>
+</div>
+<br>
+<button class="ui button"><%= link_to "Create Username", new_user_path %></button>

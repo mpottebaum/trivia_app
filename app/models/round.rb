@@ -31,9 +31,11 @@ class Round < ApplicationRecord
     
     def check_answer(question_params)
         question = Question.find(question_params["id"])
-        if question_params["answer"].downcase == question.answer.downcase
+        if question_params["answer"] == ""
+            false
+        elsif question_params["answer"].downcase == question.answer.downcase
             true
-        elsif check_alt_answer(question_params, question)
+        elsif check_alt_answer(question_params, question) == true
             true
         else
             false

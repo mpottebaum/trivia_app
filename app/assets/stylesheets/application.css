@@ -222,7 +222,7 @@
 
 .round-show {
     display: inline-grid;
-    grid-template-columns: auto;
+    grid-template-columns: 600px;
     grid-template-areas:
         "questions"
         "scores";

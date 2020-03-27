@@ -10,7 +10,7 @@
             <%= select_tag :round_group_ids, options_from_collection_for_select(@round_groups, :id, :name), multiple: true, class: "ui dropdown select-game-new" %>
         </div>
         <div class="field submit">
-            <%= submit_tag "Continue" %>
+            <%= submit_tag "Continue", class: "ui button" %>
         </div>
     <% end %>
 </div>
