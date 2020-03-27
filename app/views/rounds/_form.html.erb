@@ -1,7 +1,7 @@
 <div class="wrapper">
     <%= form_for round, html: {class: "ui form"} do |f| %>
         <div class="field submit">
-            <%= f.submit %>
+            <%= f.submit "Save Round", class: "ui button" %>
         </div>
         <div class="inline field name">
             <%= f.label :name, "Name:" %>
@@ -33,7 +33,7 @@
             </div>
         </div>
         <div class="field submit">
-            <%= f.submit %>
+            <%= f.submit "Save Round", class: "ui button" %>
         </div>
     <% end %>
 </div>

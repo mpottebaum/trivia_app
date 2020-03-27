@@ -1,5 +1,5 @@
 <h1>Edit Your Username</h1>
 
 <%= render partial: 'form', locals: {user: @user} %>
-
-<%= link_to "Delete", user_path(@user), method: "delete" %>
+<br>
+<button class="ui button"><%= link_to "Delete", user_path(@user), method: "delete" %></button>
