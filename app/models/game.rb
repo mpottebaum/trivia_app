@@ -105,11 +105,11 @@ class Game < ApplicationRecord
     end
 
     def num_plays
-        game_round_plays / (rounds.count)
+        game_round_plays.count / (rounds.count)
     end
 
     def all_scores
-        users.map do |user|
+        users.uniq.map do |user|
             [last_score_total(user.id), user]
         end
     end

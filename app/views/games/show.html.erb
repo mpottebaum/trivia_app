@@ -1,5 +1,6 @@
 <div class="header show-header">
     <h2 class="show-title"><%= @game.name %></h2>
+    <p>Created By: <%= link_to @game.creator.username, user_path(@game.creator) %></p>
 
     <button class="ui left labeled icon button">
             <i class="play icon"></i><%= link_to "Play Game", game_game_plays_start_path(@game), method: "post" %>
@@ -25,10 +26,10 @@
 
     <div class="high-scores">
         <h2 class="show-sub">High Scores</h2>
-            <ul>
+            <ol>
             <% @game.high_scores.each do |score| %>
                 <li><%= score[1].username %>: <%= score[0] %></li>
             <% end %>
-            </ul>
+            </ol>
     </div>
 </div>

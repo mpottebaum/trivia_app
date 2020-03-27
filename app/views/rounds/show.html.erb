@@ -1,6 +1,6 @@
 <div class="header show-header">
     <h1><%= @round.name %></h1>
-    <p>Created By: <%= @round.creator.username %></p>
+    <p>Created By: <%= link_to @round.creator.username, user_path(@round.creator) %></p>
 
     <div class="play-round-link">
         <button class="ui left labeled icon button">
@@ -37,10 +37,10 @@
 
         <div class="high-scores">
             <h2 class="show-sub">High Scores:</h2>
-                <ul>
+                <ol>
                 <% @round.high_scores.each do |round_play| %>
                     <li><%= round_play.user.username %>: <%= round_play.score %></li>
                 <% end %>
-                </ul>
+                </ol>
         </div>
 </div>
