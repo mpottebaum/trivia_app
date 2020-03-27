@@ -7,7 +7,9 @@
             <%= select_tag :num_rounds, options_for_select(@numbers), class: "ui search dropdown select-game-new" %>
         <div class="field">
             <%= label_tag :round_group_ids, "Your Round Groups To Select From:" %>
+            <br>
             <%= select_tag :round_group_ids, options_from_collection_for_select(@round_groups, :id, :name), multiple: true, class: "ui dropdown select-game-new" %>
+            <p class="instruct">(Hold Command on Mac or Control on Windows to select multiple groups)</p>
         </div>
         <div class="field submit">
             <%= submit_tag "Continue", class: "ui button" %>

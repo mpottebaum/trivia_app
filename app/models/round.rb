@@ -43,9 +43,13 @@ class Round < ApplicationRecord
     end
 
     def check_alt_answer(question_params, question)
-        keywords = question.alt_answer.split(" ")
-        booleans = keywords.map {|word| question_params["answer"].downcase.include?(word.downcase)}
-        booleans.all? {|bool| bool == true}
+        if question.alt_answer == ""
+            false
+        else
+            keywords = question.alt_answer.split(" ")
+            booleans = keywords.map {|word| question_params["answer"].downcase.include?(word.downcase)}
+            booleans.all? {|bool| bool == true}
+        end
     end
 
     def self.compile_rounds_from_round_groups(round_group_ids)

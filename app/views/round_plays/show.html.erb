@@ -17,7 +17,8 @@
             <% if @round.check_answer(flash[:answers][question_id]) == true %>
                 <p class="correct">Your Answer: <%= flash[:answers][question_id]["answer"] %></p>
             <% else %>
-                <p class="incorrect">Your Answer: <%= flash[:answers][question_id]["answer"] %></p>
+                <p><span class="incorrect">Your Answer: <%= flash[:answers][question_id]["answer"] %></span>
+                <br>Correct Answer: <b><%= Question.find(question_id).answer %></b></p>
             <% end %>
             </li>
         <% end %>

@@ -7,7 +7,7 @@
 <% @game.rounds.each do |round| %>
     <li><%= round.name %>
     <% if @game.round_score(current_user_id, round) %>
-        Score: <%= @game.round_score(current_user_id, round) %>
+        <br>Score: <%= @game.round_score(current_user_id, round) %>
     <% end %>
     </li>
 <% end %>

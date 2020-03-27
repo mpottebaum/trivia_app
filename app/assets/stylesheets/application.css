@@ -254,3 +254,11 @@
 .answer-field {
     margin: 10px;
 }
+
+.instruct {
+    font-size: 15px;
+}
+
+.home {
+    text-align: center;
+}
