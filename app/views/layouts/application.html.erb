@@ -26,11 +26,11 @@
           Trivia App
         </div>
           <%= link_to "Home", root_path, class: "item" %>
+          <%= link_to "Games", games_path, class: "item" %>
+          <%= link_to "Rounds", rounds_path, class: "item" %>
           <% if logged_in? %>
             <%= link_to "My Trivia", user_path(current_user), class: "item" %>
           <% end %>
-          <%= link_to "Games", games_path, class: "item" %>
-          <%= link_to "Rounds", rounds_path, class: "item" %>
       </div>
       </header>
 

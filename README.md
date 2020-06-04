@@ -1,24 +1,31 @@
-# README
+# Trivia App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![Trivia App demo](https://j.gifs.com/wVNkng.gif)
 
-Things you may want to cover:
+Trivia App provides a platform for trivia connoisseurs to create and share trivia games that any registered user can play.
 
-* Ruby version
+[Full Demo](https://www.youtube.com/watch?v=WdueasHRmAs)
 
-* System dependencies
+## Installing Trivia App
 
-* Configuration
+To install Trivia App, clone this repo and install gems
 
-* Database creation
+```
+git@github.com:mpottebaum/trivia_app.git
 
-* Database initialization
+cd trivia_app
+bundle
+```
 
-* How to run the test suite
+## Using Trivia App
 
-* Services (job queues, cache servers, search engines, etc.)
+To use Trivia App, `cd` into the `trivia_app` directory and start the server.
 
-* Deployment instructions
+```
+cd trivia_app
+rails s
+```
 
-* ...
+## Contact
+
+If you want to contact me you can reach me at mpottebaum@gmail.com.

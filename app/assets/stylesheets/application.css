@@ -87,6 +87,7 @@
 .rounds-index {
     display: inline-grid;
     grid-template-columns: 300px 300px 300px;
+    grid-template-rows: 310px;
     grid-template-areas:
         "rplay rrecent rsaved"
         "rall rall rall";
