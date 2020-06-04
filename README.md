@@ -1,10 +1,10 @@
 # Trivia App
 
-![Trivia App demo](https://j.gifs.com/wVNkng.gif)
-
 Trivia App provides a platform for trivia connoisseurs to create and share trivia games that any registered user can play.
 
 [Full Demo](https://www.youtube.com/watch?v=WdueasHRmAs)
+
+![Trivia App demo](https://j.gifs.com/wVNkng.gif)
 
 ## Installing Trivia App
 
